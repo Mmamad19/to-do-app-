@@ -1,0 +1,2 @@
+# django-practic
+ django-practic
