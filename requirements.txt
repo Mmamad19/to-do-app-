@@ -1,2 +1,4 @@
 django >=3.2,<=3.3
 python-decouple
+drf-yasg[validation]
+pillow
