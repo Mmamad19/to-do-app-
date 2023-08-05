@@ -6,3 +6,4 @@ class SignUpView(CreateView):
     form_class = siginform
     success_url = '/blog/post/'
     template_name = 'blog/signup.html'
+
