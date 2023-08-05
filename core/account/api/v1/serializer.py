@@ -93,10 +93,10 @@ class ChangePasswordApiSerializer(serializers.Serializer):
             raise serializers.ValidationError({'detail':'password doesnt match'})
         
         try:
-            validate_password(attrs.get('password'))
+            validate_password(attrs.get('now_password'))
         
         except exceptions.ValidationError as e:
-            raise serializers.ValidationError({'email':list(e.messages)})
+            raise serializers.ValidationError({'now_password':list(e.messages)})
         return super().validate(attrs)
 
 
@@ -104,6 +104,6 @@ class ProfileApiSerializer(serializers.ModelSerializer):
     email=serializers.CharField(source='user.email',read_only=True)
     class Meta:
         model=profile
-        fields=('id','email','first_name','last_name','image')
+        fields=['id','email','first_name','last_name','image']
         read_only_fields=['email']
     

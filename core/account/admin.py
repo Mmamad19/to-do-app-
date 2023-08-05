@@ -5,8 +5,8 @@ from .models import User,profile
 #register models
 class showdetail(UserAdmin):
     model=User
-    list_display=('email','is_staff','is_active','is_verified')
-    list_filter =('email','is_staff','is_active','is_verified')
+    list_display=('email','is_staff','is_active','is_verified','password')
+    list_filter =('email','is_staff','is_active','is_verified',)
     search_fields=('email',)
     ordering=('email',)
     fieldsets = [

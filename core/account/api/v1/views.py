@@ -57,7 +57,7 @@ class ChangePasswordApiView(generics.GenericAPIView):
         serializer_class = ChangePasswordApiSerializer
         model = User
         permission_classes = [IsAuthenticated]
-        queryset=User
+        
         def get_object(self, queryset=None):
             obj = self.request.user
             return obj
@@ -86,14 +86,18 @@ class ChangePasswordApiView(generics.GenericAPIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class ProfileApiView(generics.RetrieveUpdateAPIView):
+class ProfileApiView(generics.RetrieveAPIView):
     serializer_class=ProfileApiSerializer
     queryset=profile.objects.all()
+    permission_classes=[IsAuthenticated]
 
     def get_object(self):
         queryset=self.get_queryset()
         obj=get_object_or_404(queryset,self.request.user)
         return obj
+
+
+
 
 class TestSendEmail(generics.GenericAPIView):
     def post(self,request,*arges,**kwarges):

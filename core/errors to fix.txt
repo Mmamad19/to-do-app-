@@ -1,7 +1,6 @@
 
-fixing problem with change password
 fixing profile problems
 
 watch user activations again
 
-test smtp4dev with swagger 
+test smtp4dev with swagger
